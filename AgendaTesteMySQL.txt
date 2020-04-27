@@ -1,0 +1,15 @@
+CREATE TABLE agenda (
+  Id int(11) NOT NULL AUTO_INCREMENT,
+  Name varchar(60) DEFAULT NULL,
+  Phone varchar(10) NOT NULL,
+  PRIMARY KEY (Id)
+);
+
+INSERT INTO agenda (Id, Name, Phone) VALUES 
+  ('Natalie Gusso','99650-9770'),
+  ('Eduardo Gusso','99186-9281'),
+  ('Iole Lemos','99650-9773'),
+  ('Iomara Lemos','99999-9999');
+
+
+
