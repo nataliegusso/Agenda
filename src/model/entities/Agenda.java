@@ -1,7 +1,8 @@
 package model.entities;
 
 import java.io.Serializable;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Agenda implements Serializable{
 	
@@ -10,16 +11,23 @@ public class Agenda implements Serializable{
 	private Integer id;
 	private String name;
 	private String phone;
+	private String cellphone;
+	private String email;
+	private Date birthdate;
 	
-
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
 	
 	public Agenda() {
 	}
 
-	public Agenda(Integer id, String name, String phone) {
+	public Agenda(Integer id, String name, String phone, String cellphone, String email, Date birthdate) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.phone = phone;
+		this.cellphone = cellphone;
+		this.email = email;
+		this.birthdate = birthdate;
 	}
 
 	public Integer getId() {
@@ -44,6 +52,30 @@ public class Agenda implements Serializable{
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public String getCellphone() {
+		return cellphone;
+	}
+
+	public void setCellphone(String cellphone) {
+		this.cellphone = cellphone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Date getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(Date birthdate) {
+		this.birthdate = birthdate;
 	}
 
 	@Override
@@ -79,6 +111,6 @@ public class Agenda implements Serializable{
 
 	@Override
 	public String toString() {
-		return getId() + ", " + getName() + ", " + getPhone();
+		return getId() + ", " + getName() + ", " + getPhone() + ", " + getCellphone() + ", " + getEmail() + ", " + sdf.format(birthdate);  //getName().substring(0,1).toUpperCase() + getName().substring(1)
 	}
 }

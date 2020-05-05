@@ -1,15 +1,19 @@
 CREATE TABLE agenda (
   Id int(11) NOT NULL AUTO_INCREMENT,
-  Name varchar(60) DEFAULT NULL,
-  Phone varchar(10) NOT NULL,
+  Name varchar(60) NOT NULL,
+  Phone varchar(10) NULL,
+  Cellphone varchar(10) NULL,
+  Email varchar(60) NULL,
+  Birthdate date NULL,
   PRIMARY KEY (Id)
 );
 
-INSERT INTO agenda (Id, Name, Phone) VALUES 
-  ('Natalie Gusso','99650-9770'),
-  ('Eduardo Gusso','99186-9281'),
-  ('Iole Lemos','99650-9773'),
-  ('Iomara Lemos','99999-9999');
 
 
+INSERT INTO agenda (Name, Phone, Cellphone, Email, Birthdate) VALUES
+ 
+ ('Natalie Gusso','3018-3537','99650-9770','natalielemos@gmail.com','1979/12/09'),
 
+  ('Eduardo Gusso','3018-3537','99186-9281','eduardogusso@gmail.com','1983/07/29'),
+
+  ('Iole E S Lemos','3243-4798','99650-9773','iole@gmail.com','1954/04/10')

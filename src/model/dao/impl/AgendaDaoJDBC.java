@@ -28,12 +28,16 @@ public class AgendaDaoJDBC implements AgendaDao{
 		try {
 			st = conn.prepareStatement(
 					"INSERT INTO agenda "
-					+"(Name, Phone) "
+					+"(Name, Phone, Cellphone, Email, Birthdate) "
 					+ "VALUES "
-					+ "(?, ?)",
+					+ "(?, ?, ?, ?, ?)",
 					Statement.RETURN_GENERATED_KEYS);
 			st.setString(1, obj.getName());
 			st.setString(2, obj.getPhone());
+			st.setString(3, obj.getCellphone());
+			st.setString(4, obj.getEmail());
+			st.setDate(5, new java.sql.Date(obj.getBirthdate().getTime()));
+			
 			
 			int rowsAffected = st.executeUpdate();
 			
@@ -62,11 +66,14 @@ public class AgendaDaoJDBC implements AgendaDao{
 		try {
 			st = conn.prepareStatement(
 					"UPDATE agenda " +
-					"SET Name = ? , Phone = ? " +
+					"SET Name = ? , Phone = ?, Cellphone = ?, Email = ?, Birthdate = ? " +
 					"WHERE Id = ?");
 			st.setString(1, obj.getName());
 			st.setString(2, obj.getPhone());
-			st.setInt(3, obj.getId());
+			st.setString(3, obj.getCellphone());
+			st.setString(4, obj.getEmail());
+			st.setDate(5, new java.sql.Date(obj.getBirthdate().getTime()));
+			st.setInt(6, obj.getId());
 
 			st.executeUpdate();
 		}
@@ -182,6 +189,9 @@ public class AgendaDaoJDBC implements AgendaDao{
 		ag.setId(rs.getInt("Id"));
 		ag.setName(rs.getString("Name"));
 		ag.setPhone(rs.getString("Phone"));
+		ag.setCellphone(rs.getString("Cellphone"));
+		ag.setEmail(rs.getString("Email"));
+		ag.setBirthdate(rs.getDate("Birthdate"));
 		return ag;
 	}
 	

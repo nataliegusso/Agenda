@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import controler.Operations;
-import model.dao.AgendaDao;
-import model.dao.DaoFactory;
 import model.entities.Agenda;
 
 public class Program {
